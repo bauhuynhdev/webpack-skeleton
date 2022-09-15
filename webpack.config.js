@@ -1,12 +1,13 @@
 const {resolve} = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 const isProductionMode = process.env.NODE_ENV === "production";
 
 module.exports = {
     mode: isProductionMode ? "production" : "development",
+    watch: !isProductionMode,
     entry: "./src/index.js",
     output: {
         filename: "app.js",
@@ -86,9 +87,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "app.css"
         }),
-        new HtmlWebpackPlugin({
-            template: "./index.html",
-            minify: false
-        })
+        // new HtmlWebpackPlugin({
+        //     template: "./index.html",
+        //     minify: false
+        // })
     ]
 };
