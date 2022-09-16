@@ -1,8 +1,9 @@
 const {resolve} = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const isProductionMode = process.env.NODE_ENV === "production";
 
 module.exports = {
@@ -87,9 +88,20 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "app.css"
         }),
-        // new HtmlWebpackPlugin({
-        //     template: "./index.html",
-        //     minify: false
-        // })
-    ]
+        new HtmlWebpackPlugin({
+            template: "./index.html",
+            minify: false
+        }),
+        new CopyPlugin({
+            patterns: [
+                {from: resolve(__dirname, 'src/ace-builds/src-noconflict/worker-php.js'), to: "worker-php.js"},
+                {from: resolve(__dirname, 'src/ace-builds/src-noconflict/snippets/php.js'), to: "snippets/php.js"},
+            ],
+        }),
+    ],
+    resolve: {
+        alias: {
+            Ace: resolve(__dirname, "src/ace-builds/src-noconflict/")
+        }
+    }
 };

@@ -19,6 +19,7 @@
     "@babel/core": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
     "babel-loader": "^8.2.5",
+    "copy-webpack-plugin": "false11.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "false4.1.0",
     "html-webpack-plugin": "false5.5.0",
