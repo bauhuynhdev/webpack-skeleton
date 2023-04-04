@@ -89,7 +89,7 @@ module.exports = {
             filename: "app.css"
         }),
         new HtmlWebpackPlugin({
-            template: "./index.html",
+            template: "./src/index.html",
             minify: false
         }),
         new CopyPlugin({

@@ -5,6 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.6.0",
+    "datatables.net-dt": "false1.12.1",
+    "datatables.net-responsive-dt": "false2.3.0",
     "font-awesome": "^4.7.0",
     "jquery": "^1.9.1",
     "popper.js": "^1.16.1",
@@ -13,7 +15,8 @@
   },
   "scripts": {
     "dev": "webpack",
-    "prod": "webpack --node-env production"
+    "prod": "webpack --node-env production",
+    "serve": "cd dist && serve -S"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
